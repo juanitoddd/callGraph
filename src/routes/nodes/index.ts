@@ -17,8 +17,8 @@ const walk = async (dir, filelist = []) => {
     if (stat.isDirectory()) {
       filelist = await walk(filepath, filelist);
     } else {
+      if (file.includes("component.ts")) filelist.push(`${dir}/${file}`);
       // if (file.includes(".ts")) filelist.push(file);
-      if (file.includes("component.ts")) filelist.push(file);
     }
   }
 
